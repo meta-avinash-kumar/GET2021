@@ -22,6 +22,7 @@ public class SparseMatrix {
 				}
 			}
 		}
+		
 		matrixIndex = new SparseMatrixIndex[count];
 		for (int i = 0; i < totalRow; i++) {
 			for (int j = 0; j < totalCol; j++) {

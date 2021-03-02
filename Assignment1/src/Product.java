@@ -16,13 +16,13 @@ class Product {
 	private Integer stock = 100;
 	
 	/**
+	 * create a product with stock
 	 * @param id id of the product
 	 * @param name name of the product
 	 * @param price price of the product
 	 * @param stock number of quantity available
 	 */
 	public Product(Integer id, String name, Double price, Integer stock) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -31,12 +31,12 @@ class Product {
 	
 	
 	/**
+	 * create a product with default stock
 	 * @param id
 	 * @param name
 	 * @param price
 	 */
 	public Product(Integer id, String name, Double price) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
