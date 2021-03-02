@@ -13,7 +13,7 @@ public class ShopCart implements Cart {
 	//Here key (Integer) is product ID
 	//And value is product count
 	private final Map<Integer, Integer> cartList;
-	ProductList productList = ProductList.getInstance();
+	StockList stockList = StockList.getInstance();
 	
 	/**
 	 * class constructor
@@ -27,8 +27,8 @@ public class ShopCart implements Cart {
 	 */
 	@Override
 	public void add(Integer productId, int count) {
-		ProductList productList = ProductList.getInstance();
-		if(productList.contains(productId))
+		StockList stockList = StockList.getInstance();
+		if(stockList.contains(productId))
 		{	
 			cartList.putIfAbsent(productId, count);
 		}
@@ -75,7 +75,7 @@ public class ShopCart implements Cart {
 	public Double generateBill(){
 		Double total = 0.0;
 		for(Integer pid: cartList.keySet()){
-			Product currentProduct = productList.getProducts().get(pid);
+			Product currentProduct = stockList.getProducts().get(pid);
 			int itemCount = cartList.get(pid);
 			Double itemPrice = currentProduct.getPrice();
 			total += itemPrice * itemCount;

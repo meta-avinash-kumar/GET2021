@@ -13,7 +13,6 @@ public class SparseMatrixIndex {
 	 * @param value
 	 */
 	public SparseMatrixIndex(int rowIndex, int colIndex, int value) {
-		super();
 		this.rowIndex = rowIndex;
 		this.colIndex = colIndex;
 		this.value = value;

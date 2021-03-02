@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main {
 
 	private static Cart shopCart;
-	private static ProductList productListInstance = ProductList.getInstance();
+	private static StockList productListInstance = StockList.getInstance();
 	private static Map<Integer, Product> productList;
 	
 	/**
