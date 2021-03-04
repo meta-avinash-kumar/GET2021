@@ -1,36 +1,28 @@
+
 /**
+ * Mammal class
  * @author avinash.kumar_metacu
  *
  */
-public abstract class Mammals extends Animal {
-
+abstract public class Mammals extends Animal {
 	int runningSpeed;
-	static final boolean HAVE_HAIRS = true;
 	
 	/**
-	 * @param name
-	 * @param sound
+	 * Constructor
 	 * @param age
-	 * @param id
-	 * @param runningSpeed
+	 * @param name
+	 * @param category
+	 * @param weight
+	 * @param speed
+	 * @param sound
 	 */
-	public Mammals(String name, String sound, int age, int id, int runningSpeed) {
-		super(name, sound, age, id);
-		this.runningSpeed = runningSpeed;
+	public Mammals(int age,String name, String category, float weight,int speed,String sound) {
+		super(age,name,category,weight,sound);
+		runningSpeed = speed;
 	}
 
 	/**
-	 * @return the runningSpeed
+	 * return speed
 	 */
-	public int getRunningSpeed() {
-		return runningSpeed;
-	}
-
-	/**
-	 * @param runningSpeed the runningSpeed to set
-	 */
-	public void setRunningSpeed(int runningSpeed) {
-		this.runningSpeed = runningSpeed;
-	}
-
+	abstract public int topSpeed();
 }

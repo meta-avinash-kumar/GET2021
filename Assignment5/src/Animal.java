@@ -1,55 +1,37 @@
+
 /**
+ * Animal class
  * @author avinash.kumar_metacu
  *
  */
-public abstract class Animal {
-	
-	final String name, sound;
-	int age;
-	final int id;
-	static int counter = 1;
+abstract public class Animal {
+	int ageOfAnimal;
+	static int counter =0;
+	final int animalId;
+	String animalName;
+	String categoryOfAnimal;
+	float weightOfAnimal;
+	String soundOfAnimal;
+
 	/**
-	 * @param name
-	 * @param sound
+	 * create new Animal
 	 * @param age
-	 * @param id
+	 * @param name
+	 * @param category
+	 * @param weight
+	 * @param sound
 	 */
-	public Animal(String name, String sound, int age, int id) {
-		this.name = name;
-		this.sound = sound;
-		this.age = age;
-		this.id = id;
+	public Animal(int age,String name, String category, float weight,String sound) {
+		this.ageOfAnimal = age;
+		this.animalName = name;
+		this.categoryOfAnimal = category;
+		this.weightOfAnimal = weight;
+		animalId = counter++;
+		soundOfAnimal = sound;
 	}
-	/**
-	 * @return the age
+
+	/*
+	 * return sound
 	 */
-	public int getAge() {
-		return age;
-	}
-	/**
-	 * @param age the age to set
-	 */
-	public void setAge(int age) {
-		this.age = age;
-	}
-	/**
-	 * @return the name
-	 */
-	public String getName(){
-		return name;
-	}
-	/**
-	 * @return the sound
-	 */
-	public String getSound(){
-		return sound;
-	}
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
-	
-	
+	abstract public String getSound();
 }
