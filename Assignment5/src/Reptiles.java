@@ -1,28 +1,20 @@
+
 /**
+ * Reptiles class
  * @author avinash.kumar_metacu
  *
  */
-public abstract class Reptiles extends Animal {
-
-	final boolean canSwim;
+abstract public class Reptiles extends Animal {
 	
-	/**
-	 * @param name
-	 * @param sound
-	 * @param age
-	 * @param id
-	 * @param canSwim
-	 */
-	public Reptiles(String name, String sound, int age, int id, boolean canSwim) {
-		super(name, sound, age, id);
-		this.canSwim = canSwim;
-	}
-
-	/**
-	 * @return the canSwim
-	 */
-	public boolean isCanSwim() {
-		return canSwim;
-	}
+	String swim;
 	
+	public Reptiles(int age,String name, String category, float weight, String canSwim,String sound) {
+		super(age,name,category,weight,sound);
+		swim = canSwim;
+	}
+	/**
+	 * return can swim or not
+	 */
+	abstract public String swimSpeed();
+
 }

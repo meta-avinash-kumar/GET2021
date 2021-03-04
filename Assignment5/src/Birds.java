@@ -1,28 +1,21 @@
+
 /**
+ * Bird class
  * @author avinash.kumar_metacu
  *
  */
-public abstract class Birds extends Animal {
-
-	final boolean canfly;
-	
-	/**
-	 * @param name
-	 * @param sound
-	 * @param age
-	 * @param id
-	 * @param canfly
+abstract public class Birds extends Animal{
+	boolean fly;
+	/*
+	 * constructor
 	 */
-	public Birds(String name, String sound, int age, int id, boolean canfly) {
-		super(name, sound, age, id);
-		this.canfly = canfly;
+	public Birds(int age,String name, String category, float weight,boolean canFly,String sound) {
+		super(age,name,category,weight,sound);
+		fly = canFly;
 	}
 
-	/**
-	 * @return the can fly or not
+	/*
+	 * canfly or not
 	 */
-	public boolean isCanfly() {
-		return canfly;
-	}
-
+	abstract public boolean canFly();
 }
