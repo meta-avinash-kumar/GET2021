@@ -4,7 +4,7 @@
  */
 public class SparseMatrix {
 
-	private final SparseMatrixIndex[] matrixIndex;
+	private final SparseMatrixIndex[] mIndex;
 	private final int totalRow, totalCol;
 	
 	/**
@@ -23,12 +23,12 @@ public class SparseMatrix {
 			}
 		}
 		
-		matrixIndex = new SparseMatrixIndex[count];
+		mIndex = new SparseMatrixIndex[count];
 		for (int i = 0; i < totalRow; i++) {
 			for (int j = 0; j < totalCol; j++) {
 				if(matrix[i][j] !=0){
 					SparseMatrixIndex smi = new SparseMatrixIndex(i, j, matrix[i][j]);
-					matrixIndex[index++] = smi;
+					mIndex[index++] = smi;
 				}
 			}
 		}
@@ -40,9 +40,9 @@ public class SparseMatrix {
 	 */
 	public int[][] transposeMatrix(){
 		int[][] transpose = new int[totalRow][totalCol]; 
-		for (int i = 0; i < matrixIndex.length; i++) {
-			transpose[matrixIndex[i].getColIndex()][matrixIndex[i].getRowIndex()]
-					= matrixIndex[i].getValue();
+		for (int i = 0; i < mIndex.length; i++) {
+			transpose[mIndex[i].getColIndex()][mIndex[i].getRowIndex()]
+					= mIndex[i].getValue();
 		}
 		return transpose;
 	}
@@ -60,13 +60,15 @@ public class SparseMatrix {
 			throw new ArithmeticException("Dimension are different");
 		}
 		int[][] addMat = new int[this.totalRow][this.totalCol];
-		for (int i = 0; i < this.matrixIndex.length; i++) {
-			addMat[this.matrixIndex[i].getRowIndex()][this.matrixIndex[i].getColIndex()]
-					= this.matrixIndex[i].getValue();
+		//initialise addMat with first matrix values
+		for (int i = 0; i < this.mIndex.length; i++) {
+			addMat[this.mIndex[i].getRowIndex()][this.mIndex[i].getColIndex()]
+					= this.mIndex[i].getValue();
 		}
-		for (int i = 0; i < sparseMatrix.matrixIndex.length; i++) {
-			addMat[sparseMatrix.matrixIndex[i].getRowIndex()][sparseMatrix.matrixIndex[i].getColIndex()]
-					+= sparseMatrix.matrixIndex[i].getValue();
+		//add 2nd matrix to addMat
+		for (int i = 0; i < sparseMatrix.mIndex.length; i++) {
+			addMat[sparseMatrix.mIndex[i].getRowIndex()][sparseMatrix.mIndex[i].getColIndex()]
+					+= sparseMatrix.mIndex[i].getValue();
 		}
 		return addMat;
 	}
@@ -83,11 +85,11 @@ public class SparseMatrix {
 			throw new ArithmeticException("Dimension mismatch: this.column != sparsematrix.row");
 		}
 		int[][] mulMat = new int[this.totalRow][sparseMatrix.totalCol];
-		for (int i = 0; i < this.matrixIndex.length; i++) {
-			for (int j = 0; j < sparseMatrix.matrixIndex.length; j++) {
-				if(this.matrixIndex[i].getColIndex() == sparseMatrix.matrixIndex[j].getRowIndex())
-				mulMat[sparseMatrix.matrixIndex[j].getRowIndex()][sparseMatrix.matrixIndex[j].getColIndex()]
-						+=this.matrixIndex[i].getValue() * sparseMatrix.matrixIndex[j].getValue();
+		for (int i = 0; i < this.mIndex.length; i++) {
+			for (int j = 0; j < sparseMatrix.mIndex.length; j++) {
+				if(this.mIndex[i].getColIndex() == sparseMatrix.mIndex[j].getRowIndex())
+				mulMat[sparseMatrix.mIndex[j].getRowIndex()][sparseMatrix.mIndex[j].getColIndex()]
+						+=this.mIndex[i].getValue() * sparseMatrix.mIndex[j].getValue();
 			}
 		}
 		return mulMat;
@@ -98,16 +100,16 @@ public class SparseMatrix {
 	 * @return true if symmetric else false
 	 */
 	public boolean isSymmetric(){
-		for (int i = 0; i < matrixIndex.length; i++) {
+		for (int i = 0; i < mIndex.length; i++) {
 			int j;
-			for (j = 0; j < matrixIndex.length; j++) {
-				if((matrixIndex[i].getRowIndex() == matrixIndex[j].getColIndex()) &&
-						(matrixIndex[i].getColIndex() == matrixIndex[j].getRowIndex()) &&
-						(matrixIndex[i].getValue() == matrixIndex[j].getValue())){
+			for (j = 0; j < mIndex.length; j++) {
+				if((mIndex[i].getRowIndex() == mIndex[j].getColIndex()) &&
+						(mIndex[i].getColIndex() == mIndex[j].getRowIndex()) &&
+						(mIndex[i].getValue() == mIndex[j].getValue())){
 							break;
 						}
 			}
-			if(j == matrixIndex.length){
+			if(j == mIndex.length){
 				return false;
 			}
 		}
