@@ -44,7 +44,7 @@ public class Poly {
 	}
 
 	/**
-	 * return the degree of the polynomial
+	 * @return the degree of the polynomial
 	 */
 	public double getDegree(){
 		double max = exponent[0];
@@ -57,9 +57,10 @@ public class Poly {
 	}
 
 	/**
-	 * return the sum of the polynomials p1 and p2
+	 * add two polynomial 
 	 * @param p1
 	 * @param p2
+	 * @return the sum of the polynomials p1 and p2
 	 */
 	public static Poly addPoly(Poly p1, Poly p2){
 		int lenP1 = p1.getCoefficient().length;
@@ -80,9 +81,10 @@ public class Poly {
 	}
 
 	/**
-	 * return the product of polynomials p1 and p2
+	 * Multiply two polynomial
 	 * @param p1
 	 * @param p2
+	 * @return the product of polynomials p1 and p2
 	 */
 	public static Poly multiplyPoly(Poly p1, Poly p2){
 		int lenP1 = p1.getCoefficient().length;
