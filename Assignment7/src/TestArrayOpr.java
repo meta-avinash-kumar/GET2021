@@ -11,25 +11,24 @@ public class TestArrayOpr {
 	 */
 	@Test
 	public void testCaseForCountClumps() {
-		ArrOperation aop = new ArrOperation();
 		int res;
-		res = aop.countClumps(new int[] {1,1,2,1,1});
+		res = ArrOperation.countClumps(new int[] {1,1,2,1,1});
 		assertEquals(res,2);
 
-		res = aop.countClumps(new int[] {1,1,1,1,1});
+		res = ArrOperation.countClumps(new int[] {1,1,1,1,1});
 		assertEquals(res,1);
 
-		res = aop.countClumps(new int[] {1,2,3,4});
+		res = ArrOperation.countClumps(new int[] {1,2,3,4});
 		assertEquals(res,0);
 
-		res = aop.countClumps(new int[] {1,2,3,4,5,5});
+		res = ArrOperation.countClumps(new int[] {1,2,3,4,5,5});
 		assertEquals(res,1);
 
-		res = aop.countClumps(new int[] {1,2,2,3,4});
+		res = ArrOperation.countClumps(new int[] {1,2,2,3,4});
 		assertEquals(res,1);
 
 
-		res = aop.countClumps(new int[] {1,2,3,3,5,5,6});
+		res = ArrOperation.countClumps(new int[] {1,2,3,3,5,5,6});
 		assertEquals(res,2);
 	}
 	

@@ -12,10 +12,11 @@ public class ArrOperation {
 	 * @param array
 	 * @return count of clumps
 	 */
-	int countClumps(int[] array)
+	public static int countClumps(int[] array)
 	{
-		if(array.length==0)
+		if(array.length==0){
 			throw new AssertionError("empty array");
+		}
 		int noOfClumps=0;
 		for(int i=0;i<array.length-1;i++)
 		{
@@ -35,16 +36,17 @@ public class ArrOperation {
 
 		return noOfClumps;
 	}
-	
+
 	/**
 	 * Method to split Array
 	 * @param array
 	 * @return
 	 */
-	int splitArray(int[] array)
+	public static int splitArray(int[] array)
 	{
-		if(array.length==0)
+		if(array.length==0){
 			throw new AssertionError("empty array");
+		}
 		int sumForward = 0;
 		int i;
 		for(i = 0;i<array.length;i++)
@@ -73,26 +75,28 @@ public class ArrOperation {
 	 * @param y
 	 * @return array
 	 */
-	int[] fixXY(int[] array,int x,int y){
+	public static int[] fixXY(int[] array,int x,int y){
+		if(array.length==0 || array[array.length-1]==x){
+			throw new AssertionError("invalid input");
+		}
 		int noOfX=0;
 		int noOfY=0;
 		ArrayList<Integer> previousIndexOfY = new ArrayList<Integer>();
-		for(int i=0;i<array.length;i++)
-		{
-			if(array[i]==x)
+		//Count no of X and Y
+		for(int i=0;i<array.length;i++){
+			if(array[i]==x){
 				noOfX++;
-			if(array[i]==y)
+			}
+			if(array[i]==y){
 				noOfY++;
-
+			}
 		}
 
-
-
-		if(array.length==0||noOfX!=noOfY||array[array.length-1]==x)
+		if(noOfX!=noOfY){
 			throw new AssertionError("invalid input");
-
-
+		}
 		int indexOfX = 0,indexOfY = -1;
+		//rearrange x, y
 		for(int i=0;i<array.length;i++)
 		{
 			if(array[i] == x  )
@@ -106,58 +110,45 @@ public class ArrOperation {
 
 				}
 				indexOfY = j;
-
 				int temp = array[indexOfY];
 				array[indexOfY]=array[indexOfX+1];
 				array[indexOfX+1]=temp;
 				indexOfY = indexOfX +1;
 				previousIndexOfY.add(indexOfY);
-
 			}
-
 		}
-
 		return array;
 	}
-	
+
 	/**
 	 * Method to mirror Array
 	 * @param arr
 	 * @return
 	 */
-	int mirror(int[] arr)
-	{	if(arr.length==0)
-		throw new AssertionError("empty array");
-
-	int size = arr.length;
-	int max =0;
-	int [][]matrix=new int[size+1][size+1];
-	for(int i=0;i<=size;i++)
-	{
-		for(int j=0;j<=size;j++)
-		{
-			if(i==0||j==0)
-			{
-				matrix[i][j]=0;
-			}
-			else if(arr[i-1]==arr[size-j])
-			{
-				matrix[i][j]=matrix[i-1][j-1]+1;
-			}
-			else
-			{
-				matrix[i][j]=0;
-			}
-			if(max<matrix[i][j])
-			{
-				max=matrix[i][j];
-			}
-
+	public static int mirror(int[] arr)
+	{	if(arr.length==0){
+			throw new AssertionError("empty array");
 		}
-
-	}
-	return max;
-
+		int size = arr.length;
+		int max =0;
+		int [][]matrix=new int[size+1][size+1];
+		for(int i=0;i<=size;i++){
+			for(int j=0;j<=size;j++){
+				if(i==0||j==0){
+					matrix[i][j]=0;
+				}
+				else if(arr[i-1]==arr[size-j]){
+					matrix[i][j]=matrix[i-1][j-1]+1;
+				}
+				else{
+					matrix[i][j]=0;
+				}
+				if(max<matrix[i][j]){
+					max=matrix[i][j];
+				}
+			}
+		}
+		return max;
 	}
 
 
