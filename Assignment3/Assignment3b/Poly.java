@@ -84,7 +84,7 @@ public class Poly {
 	 * @param p1
 	 * @param p2
 	 */
-	public static Poly	multiplyPoly(Poly p1, Poly p2){
+	public static Poly multiplyPoly(Poly p1, Poly p2){
 		int lenP1 = p1.getCoefficient().length;
 		int lenP2 = p2.getCoefficient().length;
 		double[] coeff = new double[lenP1*lenP2];
