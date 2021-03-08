@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author avinash.kumar_metacu
@@ -11,7 +12,7 @@ public class Main {
 	 */
 	public static void main(String[] args){
 		Screen s1 = new Screen();
-		ArrayList<Double> sides = new ArrayList<Double>();
+		List<Double> sides = new ArrayList<Double>();
 		sides.add(5d);
 		s1.addShape("square", 5d, 7d, sides);
 		System.out.println(s1.getListOfShape().get(0).getShapeType());
@@ -47,7 +48,7 @@ public class Main {
 
 		len.remove(0);
 
-		ArrayList<Shape> obj = new ArrayList<Shape>();
+		List<Shape> obj = new ArrayList<Shape>();
 		obj = s1.checkShapesEnclosingPoint(3d, 6d);
 		for(int i=0;i<obj.size();i++){
 			System.out.println(obj.get(i).getShapeType());

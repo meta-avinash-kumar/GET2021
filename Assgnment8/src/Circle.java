@@ -1,6 +1,6 @@
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * This class implements shape interface.
@@ -18,10 +18,10 @@ public class Circle implements Shape {
 	/**
 	 * Constructor
 	 * @param obj
-	 * @param listOfInteger
+	 * @param length
 	 */
-	public Circle(StartingPoint obj, ArrayList<Double> listOfInteger){
-		radius = listOfInteger.get(0);
+	public Circle(StartingPoint obj, List<Double> length){
+		radius = length.get(0);
 		coordinates = new StartingPoint(obj.xCoordinate, obj.yCoordinate);
 		area = Math.PI*Math.pow(radius,2);
 		perimeter = 2*Math.PI*radius;

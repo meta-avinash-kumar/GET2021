@@ -5,7 +5,7 @@ import java.util.*;
  * @author avinash.kumar_metacu
  */
 public class Screen{
-	private ArrayList<Shape> listOfShape = new ArrayList<Shape>();
+	private List<Shape> listOfShape = new ArrayList<Shape>();
 
 	/**
 	 * This function creates and adds new shape in a listOfShape list.
@@ -16,7 +16,8 @@ public class Screen{
 	 * @return true if shape is added else false.
 	 * @throws AssertionError when parameters are invalid.
 	 */
-	public boolean addShape(String type,double xCoordinate,double yCoordinate,ArrayList<Double> length) throws AssertionError{
+	public boolean addShape(String type, double xCoordinate, double yCoordinate,
+			List<Double> length) throws AssertionError{
 		if(type == null|| xCoordinate < 0|| yCoordinate < 0|| length.size() <= 0){
 			throw new AssertionError("Provide valid parameters.");
 		}
@@ -51,7 +52,7 @@ public class Screen{
 	 * @param filter defines the type of sorting.
 	 * @return list of objects after sorting.
 	 */
-	public ArrayList<Shape> sortShapeBy(String filter){
+	public List<Shape> sortShapeBy(String filter){
 
 		if("area".equalsIgnoreCase(filter)){
 			Collections.sort(getListOfShape() ,new AreaComparator());
@@ -75,11 +76,11 @@ public class Screen{
 	 * @return list of objects enclosing the point.
 	 * @throws AssertionError if no object found enclosing the shape.
 	 */
-	public ArrayList<Shape> checkShapesEnclosingPoint(double xCoord,
+	public List<Shape> checkShapesEnclosingPoint(double xCoord,
 			double yCoord) throws AssertionError {
 		
 		StartingPoint obj = new StartingPoint(xCoord,yCoord);
-		ArrayList<Shape> enclosingShapeObjects = new ArrayList<Shape>();
+		List<Shape> enclosingShapeObjects = new ArrayList<Shape>();
 
 		for(int i = 0; i<getListOfShape().size();i++){
 			if(getListOfShape().get(i).isPointEnclosed(obj)){
@@ -111,14 +112,14 @@ public class Screen{
 	/**
 	 * @return the listOfShape
 	 */
-	public ArrayList<Shape> getListOfShape() {
+	public List<Shape> getListOfShape() {
 		return listOfShape;
 	}
 
 	/**
 	 * @param listOfShape the listOfShape to set
 	 */
-	public void setListOfShape(ArrayList<Shape> listOfShape) {
+	public void setListOfShape(List<Shape> listOfShape) {
 		this.listOfShape = listOfShape;
 	}
 	

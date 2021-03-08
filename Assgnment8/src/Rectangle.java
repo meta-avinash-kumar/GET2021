@@ -1,6 +1,6 @@
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * This class implements shape interface.
@@ -14,9 +14,9 @@ public class Rectangle implements Shape {
 	private double area, perimeter,originDistance;
 	private Timestamp tstamp;
 
-	public Rectangle(StartingPoint obj, ArrayList<Double> listOfInteger){
-		width = listOfInteger.get(0);
-		height = listOfInteger.get(1);
+	public Rectangle(StartingPoint obj, List<Double> length){
+		width = length.get(0);
+		height = length.get(1);
 		coordinates = new StartingPoint(obj.xCoordinate, obj.yCoordinate);
 		area = width*height;
 		perimeter = 2*(width + height);

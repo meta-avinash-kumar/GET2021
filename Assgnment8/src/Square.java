@@ -1,6 +1,6 @@
 import java.util.Date;
+import java.util.List;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 
 /**
  * This class implements shape interface.
@@ -19,10 +19,10 @@ public class Square implements Shape {
 	 * Create a square
 	 * 
 	 * @param obj
-	 * @param listOfInteger
+	 * @param length
 	 */
-	public Square(StartingPoint obj, ArrayList<Double> listOfInteger){
-		width = listOfInteger.get(0);
+	public Square(StartingPoint obj, List<Double> length){
+		width = length.get(0);
 		coordinates = new StartingPoint(obj.xCoordinate, obj.yCoordinate);
 		area = width*width;
 		perimeter = 4*width;
