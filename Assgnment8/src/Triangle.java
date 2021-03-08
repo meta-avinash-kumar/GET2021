@@ -1,6 +1,6 @@
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * This class implements shape interface.
@@ -19,11 +19,11 @@ public class Triangle implements Shape {
 	 * Create a triangle
 	 * 
 	 * @param obj
-	 * @param listOfInteger
+	 * @param length
 	 */
-	public Triangle(StartingPoint obj, ArrayList<Double> listOfInteger){
-		width = listOfInteger.get(0);
-		height = listOfInteger.get(1);
+	public Triangle(StartingPoint obj, List<Double> length){
+		width = length.get(0);
+		height = length.get(1);
 		coordinates = new StartingPoint(obj.xCoordinate, obj.yCoordinate);
 		area = (width*height)/2;
 		perimeter = 2*(width + height);
