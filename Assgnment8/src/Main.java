@@ -45,7 +45,6 @@ public class Main {
 		System.out.println(s1.getListOfShape().get(3).getOrigin());
 		System.out.println("----------------");
 
-
 		len.remove(0);
 
 		ArrayList<Shape> obj = new ArrayList<Shape>();
@@ -55,7 +54,7 @@ public class Main {
 		}
 		System.out.println("----------------");
 
-		obj = s1.sortObjects("ärea");
+		obj = s1.sortShapeBy("ärea");
 		for(int i=0;i<obj.size();i++){
 			System.out.println(obj.get(i).getShapeType());
 		}

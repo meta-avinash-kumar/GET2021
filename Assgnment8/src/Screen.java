@@ -17,8 +17,9 @@ public class Screen{
 	 * @throws AssertionError when parameters are invalid.
 	 */
 	public boolean addShape(String type,double xCoordinate,double yCoordinate,ArrayList<Double> length) throws AssertionError{
-		if(type == null|| xCoordinate < 0|| yCoordinate < 0|| length.size() <= 0)
+		if(type == null|| xCoordinate < 0|| yCoordinate < 0|| length.size() <= 0){
 			throw new AssertionError("Provide valid parameters.");
+		}
 		StartingPoint start = new StartingPoint(xCoordinate,yCoordinate);
 		Shape shapeObj = ShapeFactory.typeShapeFactory(type, start, length);
 		getListOfShape().add(shapeObj);
@@ -33,13 +34,16 @@ public class Screen{
 	public boolean removeAllShapesOfSameType(String shapeType){
 		int i;
 		for(i=0; i < getListOfShape().size();i++){
-			if(getListOfShape().get(i).getShapeType().equalsIgnoreCase(shapeType))
+			if(getListOfShape().get(i).getShapeType().equalsIgnoreCase(shapeType)){
 				getListOfShape().remove(i);
+			}
 		}
-		if(getListOfShape().size() < i)
+		if(getListOfShape().size() < i){
 			return true;
-		else 
+		}
+		else {
 			return false;
+		}
 	}
 
 	/**
@@ -47,16 +51,20 @@ public class Screen{
 	 * @param filter defines the type of sorting.
 	 * @return list of objects after sorting.
 	 */
-	public ArrayList<Shape> sortObjects(String filter){
+	public ArrayList<Shape> sortShapeBy(String filter){
 
-		if("area".equalsIgnoreCase(filter))
+		if("area".equalsIgnoreCase(filter)){
 			Collections.sort(getListOfShape() ,new AreaComparator());
-		else if("perimeter".equalsIgnoreCase(filter))
+		}
+		else if("perimeter".equalsIgnoreCase(filter)){
 			Collections.sort(getListOfShape() ,new PerimeterComparator());
-		else if("timestamp".equalsIgnoreCase(filter))
+		}
+		else if("timestamp".equalsIgnoreCase(filter)){
 			Collections.sort(getListOfShape() ,new TimeStampComparator());
-		else
+		}
+		else{
 			Collections.sort(getListOfShape() ,new OriginDistComparator());
+		}
 		return getListOfShape();
 	}
 
@@ -67,19 +75,21 @@ public class Screen{
 	 * @return list of objects enclosing the point.
 	 * @throws AssertionError if no object found enclosing the shape.
 	 */
-	public ArrayList<Shape> checkShapesEnclosingPoint(double xCoord, double yCoord) throws AssertionError{
+	public ArrayList<Shape> checkShapesEnclosingPoint(double xCoord,
+			double yCoord) throws AssertionError {
+		
 		StartingPoint obj = new StartingPoint(xCoord,yCoord);
-
 		ArrayList<Shape> enclosingShapeObjects = new ArrayList<Shape>();
 
 		for(int i = 0; i<getListOfShape().size();i++){
-			if(getListOfShape().get(i).isPointEnclosed(obj))
+			if(getListOfShape().get(i).isPointEnclosed(obj)){
 				enclosingShapeObjects.add(getListOfShape().get(i));
+			}
 		}
 
-		if(enclosingShapeObjects.size() == 0)
+		if(enclosingShapeObjects.size() == 0){
 			throw new AssertionError("No object enclosing this point found.");
-
+		}
 		return enclosingShapeObjects;
 	}
 
