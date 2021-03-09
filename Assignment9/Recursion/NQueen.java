@@ -16,20 +16,26 @@ public class NQueen {
 	{ 
 		int i, j; 
 
-		/* Check this row on left side */
-		for (i = 0; i < col; i++) 
-			if (board[row][i] == 1) 
-				return false; 
+		// Check this row on left side
+		for (i = 0; i < col; i++){
+			if (board[row][i] == 1){ 
+				return false;
+			}
+		}
 
-		/* Check upper diagonal on left side */
-		for (i = row, j = col; i >= 0 && j >= 0; i--, j--) 
-			if (board[i][j] == 1) 
-				return false; 
+		// Check upper diagonal on left side
+		for (i = row, j = col; i >= 0 && j >= 0; i--, j--){
+			if (board[i][j] == 1){
+				return false;
+			}
+		}
 
-		/* Check lower diagonal on left side */
-		for (i = row, j = col; j >= 0 && i < board.length; i++, j--) 
-			if (board[i][j] == 1) 
-				return false; 
+		// Check lower diagonal on left side
+		for (i = row, j = col; j >= 0 && i < board.length; i++, j--){
+			if (board[i][j] == 1){
+				return false;
+			}
+		}
 
 		return true; 
 	} 
