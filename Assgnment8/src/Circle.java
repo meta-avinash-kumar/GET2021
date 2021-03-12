@@ -25,7 +25,8 @@ public class Circle implements Shape {
 		coordinates = new StartingPoint(obj.xCoordinate, obj.yCoordinate);
 		area = Math.PI*Math.pow(radius,2);
 		perimeter = 2*Math.PI*radius;
-		originDistance = Math.sqrt(Math.pow(coordinates.xCoordinate, 2) + Math.pow(coordinates.yCoordinate, 2));
+		originDistance = Math.sqrt(Math.pow(coordinates.xCoordinate, 2) 
+				+ Math.pow(coordinates.yCoordinate, 2));
 		Date date= new Date();
 		long time = date.getTime();
 		tstamp = new Timestamp(time);
@@ -63,8 +64,10 @@ public class Circle implements Shape {
 	 */
 	@Override
 	public boolean isPointEnclosed(StartingPoint obj) {
-		if( Math.sqrt(Math.pow(obj.xCoordinate - coordinates.xCoordinate, 2) + Math.pow(obj.xCoordinate - coordinates.yCoordinate, 2)) <= radius)
+		if( Math.sqrt(Math.pow(obj.xCoordinate - coordinates.xCoordinate, 2)
+				+ Math.pow(obj.xCoordinate - coordinates.yCoordinate, 2)) <= radius){
 			return true;
+		}
 		return false;
 	}
 

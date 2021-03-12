@@ -26,7 +26,8 @@ public class Square implements Shape {
 		coordinates = new StartingPoint(obj.xCoordinate, obj.yCoordinate);
 		area = width*width;
 		perimeter = 4*width;
-		originDistance = Math.sqrt(Math.pow(coordinates.xCoordinate, 2) + Math.pow(coordinates.yCoordinate, 2));
+		originDistance = Math.sqrt(Math.pow(coordinates.xCoordinate, 2) 
+				+ Math.pow(coordinates.yCoordinate, 2));
 		Date date= new Date();
 		long time = date.getTime();
 		tstamp = new Timestamp(time);
@@ -61,9 +62,12 @@ public class Square implements Shape {
 	 */
 	@Override
 	public boolean isPointEnclosed(StartingPoint obj){
-		if(obj.xCoordinate >= coordinates.xCoordinate && obj.xCoordinate <= coordinates.xCoordinate+width
-				&& obj.yCoordinate >= coordinates.yCoordinate && obj.yCoordinate <= coordinates.yCoordinate+width)
+		if(obj.xCoordinate >= coordinates.xCoordinate 
+				&& obj.xCoordinate <= coordinates.xCoordinate+width
+				&& obj.yCoordinate >= coordinates.yCoordinate 
+				&& obj.yCoordinate <= coordinates.yCoordinate+width){
 			return true;
+		}
 		return false;
 	}
 

@@ -20,7 +20,8 @@ public class Rectangle implements Shape {
 		coordinates = new StartingPoint(obj.xCoordinate, obj.yCoordinate);
 		area = width*height;
 		perimeter = 2*(width + height);
-		originDistance = Math.sqrt(Math.pow(coordinates.xCoordinate, 2) + Math.pow(coordinates.yCoordinate, 2));
+		originDistance = Math.sqrt(Math.pow(coordinates.xCoordinate, 2)
+				+ Math.pow(coordinates.yCoordinate, 2));
 		Date date= new Date();
 		long time = date.getTime();
 		tstamp = new Timestamp(time);
@@ -55,9 +56,12 @@ public class Rectangle implements Shape {
 	 */
 	@Override
 	public boolean isPointEnclosed(StartingPoint obj){
-		if(obj.xCoordinate >= coordinates.xCoordinate && obj.xCoordinate <= coordinates.xCoordinate+width
-				&& obj.yCoordinate >= coordinates.yCoordinate && obj.yCoordinate <= coordinates.yCoordinate+height)
+		if(obj.xCoordinate >= coordinates.xCoordinate 
+				&& obj.xCoordinate <= coordinates.xCoordinate+width
+				&& obj.yCoordinate >= coordinates.yCoordinate 
+				&& obj.yCoordinate <= coordinates.yCoordinate+height){
 			return true;
+		}
 		return false;
 	}
 
