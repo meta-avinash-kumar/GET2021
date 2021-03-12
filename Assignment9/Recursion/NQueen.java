@@ -77,6 +77,9 @@ public class NQueen {
 	 * @return Solved binary board for N-Queen
 	 */
 	public int[][] getNQueenSolution(int board[][]){
+		if(board.length != board[0].length){
+			throw new AssertionError("Invalid Dimension");
+		}
 		//if solution exist return Solution
 		if (!solveNQueens(board, 0)){
 			return board;
