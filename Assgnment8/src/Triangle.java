@@ -62,9 +62,12 @@ public class Triangle implements Shape {
 	 */
 	@Override
 	public boolean isPointEnclosed(StartingPoint obj) {
-		if(obj.xCoordinate >= coordinates.xCoordinate && obj.xCoordinate <= coordinates.xCoordinate+width
-				&& obj.yCoordinate >= coordinates.yCoordinate && obj.yCoordinate <= coordinates.yCoordinate+width)
+		if(obj.xCoordinate >= coordinates.xCoordinate 
+				&& obj.xCoordinate <= coordinates.xCoordinate+width
+				&& obj.yCoordinate >= coordinates.yCoordinate 
+				&& obj.yCoordinate <= coordinates.yCoordinate+width){
 			return true;
+		}
 		return false;
 	}
 
