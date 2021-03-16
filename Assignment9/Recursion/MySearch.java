@@ -7,7 +7,25 @@
  */
 public class MySearch {
 
-	static int index = 0;
+	/**
+	 * utility function for Perform Linear Search
+	 * @param array
+	 * @param numberToSearch
+	 * @return index of numberToSearch in array
+	 */
+	public static int linearSearch(int[] array,int numberToSearch, int index)
+	{
+		//value found
+		if(array[index]==numberToSearch)
+			return index;
+		else if(index<array.length-1)
+		{
+			index++;
+			return linearSearch(array, numberToSearch, index+1);
+		}
+		return -1; //not found
+	}
+	
 	/**
 	 * Perform Linear Search
 	 * @param array
@@ -16,15 +34,7 @@ public class MySearch {
 	 */
 	public static int linearSearch(int[] array,int numberToSearch)
 	{
-		//value found
-		if(array[index]==numberToSearch)
-			return index;
-		else if(index<array.length-1)
-		{
-			index++;
-			return linearSearch(array, numberToSearch);
-		}
-		return -1; //not found
+		return linearSearch(array, numberToSearch, 0);
 	}
 	
 	/**
