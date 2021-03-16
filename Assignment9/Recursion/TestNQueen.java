@@ -21,7 +21,7 @@ public class TestNQueen {
 	
 	/*
 	 * test NQueen when Soln does not Exist
-	 * for 4x4 board
+	 * for 3x3 board
 	 */
 	@Test
 	public void testNQueen_Soln_Not_Exist()
@@ -33,7 +33,7 @@ public class TestNQueen {
 	}
 	
 	/*
-	 * test NQueen when throws erroe
+	 * test NQueen when throws error
 	 */
 	@Test(expected = AssertionError.class)
 	public void testNQueen_should_Throw_Error()
