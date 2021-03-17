@@ -25,12 +25,12 @@ INSERT INTO image (product_id) VALUES (3);
 INSERT INTO image (product_id) VALUES (4);
 INSERT INTO image (product_id) VALUES (5);
 
-INSERT INTO products (product_name, product_description, category_id, product_price, img_id) VALUES ('Abc','Description',1, 200,1);
-INSERT INTO products (product_name, product_description, category_id, product_price, img_id) VALUES ('snjb','Description',2,245,2);
-INSERT INTO products (product_name, product_description, category_id, product_price, img_id) VALUES ('jsja','Description',2,341,5);
-INSERT INTO products (product_name, product_description, category_id, product_price, img_id) VALUES ('yhak','Description',4,444,3);
-INSERT INTO products (product_name, product_description, category_id, product_price, img_id) VALUES ('jnal','Description',4,500,4);
-INSERT INTO products (product_name, product_description, category_id, product_price, img_id) VALUES ('oMLW','Description',3,199,4);
+INSERT INTO products (product_name, product_description, status, product_date, category_id, product_price,stock, img_id) VALUES ('Abc','Description','active',NOW(),1, 200,10,1);
+INSERT INTO products (product_name, product_description, status, product_date, category_id, product_price,stock, img_id) VALUES ('snjb','Description','inactive',NOW(),2,245,17,2);
+INSERT INTO products (product_name, product_description, status, product_date, category_id, product_price,stock, img_id) VALUES ('jsja','Description','active',NOW(),2,341,20,5);
+INSERT INTO products (product_name, product_description, status, product_date, category_id, product_price,stock, img_id) VALUES ('yhak','Description','active',NOW(),4,444,40,3);
+INSERT INTO products (product_name, product_description, status, product_date, category_id, product_price,stock, img_id) VALUES ('jnal','Description','active',NOW(),4,500,50,4);
+INSERT INTO products (product_name, product_description, status, product_date, category_id, product_price,stock, img_id) VALUES ('oMLW','Description','active',NOW(),3,199,100,4);
 
 INSERT INTO payment(order_id, payment_method,payment_amount, payment_date) VALUES (1,'UPI',249,NOW());
 INSERT INTO payment(order_id, payment_method,payment_amount, payment_date) VALUES (2,'UPI',249,NOW());
@@ -44,3 +44,4 @@ INSERT INTO orders (customer_id,order_date_time,order_amount,order_status,produc
 INSERT INTO orders (customer_id,order_date_time,order_amount,order_status,product_id,payment_id) VALUES (3,NOW(),249,'shipped',3,4);
 INSERT INTO orders (customer_id,order_date_time,order_amount,order_status,product_id,payment_id) VALUES (3,'2021-03-14',355,'Delivered',4,5);
 INSERT INTO orders (customer_id,order_date_time,order_amount,order_status,product_id,payment_id) VALUES (1,NOW(),750,'shipped',4,6);
+INSERT INTO orders (customer_id,order_date_time,order_amount,order_status,product_id,payment_id) VALUES (1,'2021-03-1',750,'Not shipped',4,6);
