@@ -45,3 +45,11 @@ INSERT INTO orders (customer_id,order_date_time,order_amount,order_status,produc
 INSERT INTO orders (customer_id,order_date_time,order_amount,order_status,product_id,payment_id) VALUES (3,'2021-03-14',355,'Delivered',4,5);
 INSERT INTO orders (customer_id,order_date_time,order_amount,order_status,product_id,payment_id) VALUES (1,NOW(),750,'shipped',4,6);
 INSERT INTO orders (customer_id,order_date_time,order_amount,order_status,product_id,payment_id) VALUES (1,'2021-03-1',750,'Not shipped',4,6);
+
+
+INSERT INTO address (customer_id,house_no,city,state,country,pincode) VALUES (1,1,'jaipur','rajasthan','India',302022);
+INSERT INTO address (customer_id,house_no,city,state,country,pincode) VALUES (2,5,'mumbai','maharashtra','India',200201);
+INSERT INTO address (customer_id,house_no,city,state,country,pincode) VALUES (3,3,'patna','bihar','India',800020);
+INSERT INTO address (customer_id,house_no,city,state,country,pincode) VALUES (3,20,'delhi','delhi','India',100023);
+INSERT INTO address (customer_id,house_no,city,state,country,pincode) VALUES (1,56,'kanpur','up','India',400021);
+INSERT INTO address (customer_id,house_no,city,state,country,pincode) VALUES (1,202,'agra','up','India',400402);
