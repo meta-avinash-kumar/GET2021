@@ -16,11 +16,12 @@ public class MyLinkedList {
 
 	void insert(int value){
 		Node newNode = new Node(value);
-
+		//if head is null, then this is first node
 		if(head == null){
 			head = newNode;
 		} else {
 			Node currentNode = head;
+			//add to last location
 			while (currentNode.next!=null) {
 				currentNode = currentNode.next;
 			}
@@ -34,6 +35,7 @@ public class MyLinkedList {
 	 * @param value
 	 */
 	void delete(int value){
+		//if value is head node
 		if (head!= null && head.data == value) {
 			head = head.next;
 			return;
@@ -91,8 +93,9 @@ public class MyLinkedList {
         HashSet<Node> set = new HashSet<Node>();
         Node currentNode = head;
         while (currentNode!= null) { 
-            if (set.contains(currentNode)) 
+            if (set.contains(currentNode)){ 
                 return true; 
+            }
             set.add(currentNode); 
             currentNode = currentNode.next; 
         }
@@ -109,9 +112,11 @@ public class MyLinkedList {
 	public void rotateSubList(int leftIndex,int rightIndex,int n)
 	{
 		int size = rightIndex-leftIndex+1;
+		//if n is greater than size if linked List, take its modulo
 		if(n>size){
 			n=n%size;
 		}
+		//if n is zero or is equal to size, then no rotation
 		if(n==0 || n==size){
 			Node temp = head;                
 			while(temp!=null){
@@ -124,7 +129,7 @@ public class MyLinkedList {
 		if(leftIndex==1){
 			link =head;
 		}
-		Node currentNode = head;
+		Node currentNode = head; //current traversed node
 		int count = 0;
 		Node end = null;
 		Node previous = null;
@@ -144,6 +149,8 @@ public class MyLinkedList {
 					previous.next=currentNode.next;
 				}
 			}
+			//if we reached right index, then stop rotation
+			//and print values
 			if(count==rightIndex){
 				Node d = currentNode.next;
 				currentNode.next = link;
