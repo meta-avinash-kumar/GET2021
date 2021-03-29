@@ -19,6 +19,7 @@ public class ViratKohli {
 		System.out.println("Enter quota of each bowler");
 		int p = 1;
 		int tempTotal = totalBowl;
+		// input bowls for each bowler
 		while(tempTotal > 0){
 			System.out.print("Quota of bowler "+ p+++": ");
 			int bowlLeft = sc.nextInt();

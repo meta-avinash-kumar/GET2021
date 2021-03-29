@@ -15,7 +15,8 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("****Welcome to Virtual Command Prompt****");
 		while(true){
-			System.out.println(vcmd.currentDir.getName() +">");
+			String path = vcmd.getpath(vcmd.currentDir);
+			System.out.println(path +"\\>");
 			String line = sc.nextLine();
 			String cmd[] = line.split(" ",2);
 			switch (cmd[0]) {
@@ -60,4 +61,5 @@ public class Main {
 			}
 		}
 	}
+
 }
