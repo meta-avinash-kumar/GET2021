@@ -123,4 +123,18 @@ public class VirtualCMD {
 		}
 	}
 	
+	/**
+	 * Returns the path of directory
+	 * @param currentDir
+	 * @return
+	 */
+	public String getpath(DirNode currentDir) {
+		String path = currentDir.getName();
+		while(currentDir.getParent()!=null){
+			path = currentDir.getParent().getName() +"\\"+ path;
+			currentDir = currentDir.getParent();
+		}
+		return path;
+	}
+	
 }
